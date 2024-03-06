@@ -8,12 +8,20 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
 # Load data
 @st.cache
 def load_data():
-    data = pd.read_csv("Ecommerce_Customers.csv")
+    data = pd.read_csv("your_data.csv")
     return data
+
 data = load_data()
+
 # Sidebar with buttons
 st.sidebar.title("Navigation")
 selection = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Modeling"])
@@ -43,6 +51,7 @@ elif selection == "Modeling":
     model.fit(X_train, y_train)
     accuracy = model.score(X_test, y_test)
     st.write("Model Accuracy:", accuracy)
+
 
 # Run the app
 if __name__ == "__main__":
