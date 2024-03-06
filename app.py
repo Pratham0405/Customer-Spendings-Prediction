@@ -57,7 +57,7 @@ elif selection == "Data Visualization":
 # Modeling
 # Modeling
 elif selection == "Modeling":
-    st.title("Modeling")
+    st.title("Prediction")
     st.write("This app predicts the yearly amount spent by a customer based on their input.")
 
     # Add input fields for user data
