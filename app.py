@@ -27,9 +27,16 @@ st.sidebar.title("Navigation")
 selection = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Prediction"])
 
 # Data Summary
+# Data Summary
 if selection == "Data Summary":
     st.title("Data Summary")
+    st.write("Here are some key points about the data:")
+    st.write("- The dataset contains information about customers, including their average session length, time spent on the app and website, and length of membership.")
+    st.write("- The 'Yearly Amount Spent' column represents the amount spent by each customer annually.")
+    st.write("- There are {} rows and {} columns in the dataset.".format(data.shape[0], data.shape[1]))
+    st.write("Here is a preview of the first few rows of the dataset:")
     st.write(data.head())
+
 
 # Data Visualization
 # Data Visualization
