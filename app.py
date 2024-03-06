@@ -17,7 +17,7 @@ from sklearn.linear_model import LinearRegression
 # Load data
 @st.cache
 def load_data():
-    data = pd.read_csv("your_data.csv")
+    data = pd.read_csv("Ecommerce_Customers.csv")
     return data
 
 data = load_data()
