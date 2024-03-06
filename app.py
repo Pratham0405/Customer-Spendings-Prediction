@@ -33,11 +33,13 @@ def show_data_summary(data):
 
 
 
-def show_data_visualization(data):
+elif selection == "Data Visualization":
     st.title("Data Visualization")
     # Example visualization (replace this with your own)
-    plt.hist(data['column_name'])
-    st.pyplot()
+    if not data.empty:
+        selected_column = st.selectbox("Select a column for visualization", data.columns)
+        plt.hist(data[selected_column])
+        st.pyplot()
 
 # Run the app
 if __name__ == "__main__":
