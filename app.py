@@ -33,6 +33,12 @@ def show_data_summary(data):
 
 
 
+def show_data_visualization(data):
+    st.title("Data Visualization")
+    # Example visualization (replace this with your own)
+    plt.hist(data['column_name'])
+    st.pyplot()
+
 # Run the app
 if __name__ == "__main__":
     main()
