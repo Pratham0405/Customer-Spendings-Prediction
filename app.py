@@ -41,15 +41,20 @@ elif selection == "Data Visualization":
         st.pyplot()
 
 # Modeling
+# Modeling
 elif selection == "Modeling":
     st.title("Modeling")
     # Example modeling (replace this with your own)
-    X = data[['feature1', 'feature2']]
-    y = data['target']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = LinearRegression()
-    model.fit(X_train, y_train)
-    accuracy = model.score(X_test, y_test)
-    st.write("Model Accuracy:", accuracy)
+    if 'target' in data.columns:  # Check if the target column exists in the dataset
+        X = data.drop(columns=['target'])  # Assuming 'target' is the dependent variable
+        y = data['target']
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        model = LinearRegression()
+        model.fit(X_train, y_train)
+        accuracy = model.score(X_test, y_test)
+        st.write("Model Accuracy:", accuracy)
+    else:
+        st.write("Error: Target column not found in the dataset.")
+
 
 
