@@ -32,13 +32,23 @@ if selection == "Data Summary":
     st.write(data.head())
 
 # Data Visualization
+# Data Visualization
 elif selection == "Data Visualization":
     st.title("Data Visualization")
     # Example visualization (replace this with your own)
     if not data.empty:
         selected_column = st.selectbox("Select a column for visualization", data.columns)
+        
+        # Histogram
+        st.subheader("Histogram")
         plt.hist(data[selected_column])
         st.pyplot()
+
+        # Boxplot
+        st.subheader("Boxplot")
+        sns.boxplot(data[selected_column])
+        st.pyplot()
+
 
 # Modeling
 # Modeling
