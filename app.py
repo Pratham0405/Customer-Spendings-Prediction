@@ -107,11 +107,13 @@ elif selection == "Prediction":
         st.success(f"Yearly Amount spent by customer is: ${prediction:.2f}")
 
 # Display variable importance chart
-    st.title("Variable Importance")
-    if hasattr(model, 'coef_'):  # Check if model has coefficients (e.g., for linear regression)
-        coef_df = pd.DataFrame({'Feature': data.drop('target', axis=1).columns, 'Coefficient': model.coef_})
-        coef_df = coef_df.sort_values(by='Coefficient', ascending=False)
-        st.bar_chart(coef_df.set_index('Feature'))
-    else:
-        st.write("Variable importance chart is not available for this model.")
+   # Display variable importance chart
+st.title("Variable Importance")
+if hasattr(model, 'coef_'):  # Check if model has coefficients (e.g., for linear regression)
+    coef_df = pd.DataFrame({'Feature': data.columns, 'Coefficient': model.coef_})
+    coef_df = coef_df.sort_values(by='Coefficient', ascending=False)
+    st.bar_chart(coef_df.set_index('Feature'))
+else:
+    st.write("Variable importance chart is not available for this model.")
+
 
