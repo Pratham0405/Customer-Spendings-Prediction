@@ -58,17 +58,32 @@ elif selection == "Data Visualization":
 # Modeling
 elif selection == "Modeling":
     st.title("Modeling")
-    # Example modeling (replace this with your own)
-    if 'target' in data.columns:  # Check if the target column exists in the dataset
-        X = data.drop(columns=['target'])  # Assuming 'target' is the dependent variable
-        y = data['target']
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        model = LinearRegression()
-        model.fit(X_train, y_train)
-        accuracy = model.score(X_test, y_test)
-        st.write("Model Accuracy:", accuracy)
-    else:
-        st.write("Error: Target column not found in the dataset.")
+    st.write("This app predicts the yearly amount spent by a customer based on their input.")
+
+    # Add input fields for user data
+    avg_session_length = st.slider("Avg. Session Length (minutes)", 0.0, 60.0, 30.0)
+    time_on_app = st.slider("Time on App (minutes)", 0.0, 120.0, 60.0)
+    time_on_website = st.slider("Time on Website (minutes)", 0.0, 120.0, 60.0)
+    length_of_membership = st.slider("Years of Membership", 0, 10, 1)
+
+    # Load the pre-trained model
+    model = joblib.load("pipe4.pkl")
+
+    # Define the function to make predictions
+    def predict(avg_session_length, time_on_app, time_on_website, length_of_membership):
+        input_data = pd.DataFrame({
+            'ASL': [avg_session_length],
+            'TOA': [time_on_app],
+            'TOW': [time_on_website],
+            'LOM': [length_of_membership],
+        })
+        prediction = model.predict(input_data)
+        return prediction[0]
+
+    # Add a button to make predictions
+    if st.button("Predict"):
+        prediction = predict(avg_session_length, time_on_app, time_on_website, length_of_membership)
+        st.success(f"Yearly Amount spent by customer is: ${prediction:.2f}")
 
 
 
