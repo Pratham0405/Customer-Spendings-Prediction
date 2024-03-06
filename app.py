@@ -42,19 +42,7 @@ def show_modeling(data):
     accuracy = model.score(X_test, y_test)
     st.write("Model Accuracy:", accuracy)
 
-def main():
-    st.title("Histogram Selector")
-    
-    data = load_data()
-    
-    # Create select box for column selection
-    selected_column = st.selectbox("Select a column", data.columns)
-    
-    # Display histogram for selected column
-    st.write(f"### Histogram for {selected_column}")
-    plt.hist(data[selected_column])
-    st.pyplot()
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+
 
 
 
