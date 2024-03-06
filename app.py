@@ -25,7 +25,7 @@ def main():
     st.write(f"### Histogram for {selected_column}")
     plt.hist(data[selected_column])
     st.pyplot()
-
+    st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 
