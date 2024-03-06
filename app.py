@@ -35,10 +35,12 @@ if selection == "Data Summary":
 # Data Visualization
 elif selection == "Data Visualization":
     st.title("Data Visualization")
-    # Example visualization (replace this with your own)
-    if not data.empty:
-        selected_column = st.selectbox("Select a column for visualization", data.columns)
-        
+    # Filter out numerical columns
+    numerical_columns = data.select_dtypes(include=[np.number]).columns.tolist()
+    selected_column = st.selectbox("Select a column for visualization", numerical_columns)
+    
+    # If there are numerical columns available
+    if numerical_columns:
         # Histogram
         st.subheader("Histogram")
         plt.hist(data[selected_column])
@@ -48,6 +50,8 @@ elif selection == "Data Visualization":
         st.subheader("Boxplot")
         sns.boxplot(data[selected_column])
         st.pyplot()
+    else:
+        st.write("No numerical columns found in the dataset.")
 
 
 # Modeling
