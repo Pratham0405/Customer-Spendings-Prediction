@@ -27,6 +27,10 @@ def main():
     elif page == "Modeling":
         show_modeling(data)
 
+def show_data_summary(data):
+    st.title("Data Summary")
+    st.write(data.head())
+
 
 
 # Run the app
