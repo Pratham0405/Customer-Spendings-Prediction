@@ -53,6 +53,3 @@ elif selection == "Modeling":
     st.write("Model Accuracy:", accuracy)
 
 
-# Run the app
-if __name__ == "__main__":
-    
