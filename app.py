@@ -35,7 +35,7 @@ if selection == "Data Summary":
     st.write(f"Number of rows: {data.shape[0]}")
     st.write(f"Number of columns: {data.shape[1]}")
     st.write(f"Column names: {', '.join(data.columns)}")
-    st.write(f"Data types: {', '.join(data.dtypes)}")
+    st.write(f"Data types: {', '.join(data.dtypes.astype(str))}")  # Convert data types to strings
 
     # Display the first few rows of the dataset
     st.write("First Few Rows:")
@@ -50,7 +50,6 @@ if selection == "Data Summary":
     st.write("- This dataset contains information about customers.")
     st.write("- It includes numerical features such as 'Avg. Session Length', 'Time on App', 'Time on Website', and 'Length of Membership'.")
     st.write("- The target variable is 'Yearly Amount Spent', representing the amount spent by each customer annually.")
-
 
 
 # Data Visualization
