@@ -14,25 +14,16 @@ def load_data():
     data = pd.read_csv("Ecommerce_Customers.csv")
     return data
 
-def main():
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Modeling"])
+# Sidebar with buttons
+st.sidebar.title("Navigation")
+selection = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Modeling"])
 
-    data = load_data()
-
-    if page == "Data Summary":
-        show_data_summary(data)
-    elif page == "Data Visualization":
-        show_data_visualization(data)
-    elif page == "Modeling":
-        show_modeling(data)
-
-def show_data_summary(data):
+# Data Summary
+if selection == "Data Summary":
     st.title("Data Summary")
     st.write(data.head())
 
-
-
+# Data Visualization
 elif selection == "Data Visualization":
     st.title("Data Visualization")
     # Example visualization (replace this with your own)
@@ -40,6 +31,18 @@ elif selection == "Data Visualization":
         selected_column = st.selectbox("Select a column for visualization", data.columns)
         plt.hist(data[selected_column])
         st.pyplot()
+
+# Modeling
+elif selection == "Modeling":
+    st.title("Modeling")
+    # Example modeling (replace this with your own)
+    X = data[['feature1', 'feature2']]
+    y = data['target']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+    accuracy = model.score(X_test, y_test)
+    st.write("Model Accuracy:", accuracy)
 
 # Run the app
 if __name__ == "__main__":
