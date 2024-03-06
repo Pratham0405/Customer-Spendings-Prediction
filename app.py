@@ -24,7 +24,7 @@ data = load_data()
 
 # Sidebar with buttons
 st.sidebar.title("Navigation")
-selection = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Modeling"])
+selection = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Prediction"])
 
 # Data Summary
 if selection == "Data Summary":
@@ -56,7 +56,7 @@ elif selection == "Data Visualization":
 
 # Modeling
 # Modeling
-elif selection == "Modeling":
+elif selection == "Prediction":
     st.title("Prediction")
     st.write("This app predicts the yearly amount spent by a customer based on their input.")
 
