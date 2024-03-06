@@ -1,5 +1,6 @@
 import streamlit as st
 import seaborn as sns
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import pickle5 as pickle
@@ -22,8 +23,8 @@ def main():
     
     # Display histogram for selected column
     st.write(f"### Histogram for {selected_column}")
-    sns.histplot(data[selected_column])
-    
+    plt.hist(data[selected_column])
+    st.pyplot()
 
 
 
