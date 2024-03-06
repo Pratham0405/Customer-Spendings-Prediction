@@ -13,7 +13,7 @@ from sklearn.linear_model import LinearRegression
 def load_data():
     data = pd.read_csv("Ecommerce_Customers.csv")
     return data
-
+data = load_data()
 # Sidebar with buttons
 st.sidebar.title("Navigation")
 selection = st.sidebar.radio("Go to", ["Data Summary", "Data Visualization", "Modeling"])
