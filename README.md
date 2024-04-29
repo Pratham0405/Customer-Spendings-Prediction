@@ -12,12 +12,13 @@ Make sure you have Python 3 installed on your system.
 
 ### Installation:
 
-- Clone this repository to your local machine.Copy code git clone https://github.com/yourusername/ecommerce-customer-analysis.git
+- Clone this repository to your local machine.
 
-- Navigate to the project directory. Copy code cd ecommerce-customer-analysis
-- Install the required Python packages using pip - pip install -r requirements.txt
+- Copy code   ``` git clone https://github.com/Pratham0405/Customer-Spendings-Prediction.git```
+- Navigate to the project directory. Copy code ``` cd Customer-Spendings-Prediction```
+- Install the required Python packages using pip ```- pip install -r requirements.txt```
 - Running the App : Run the Streamlit app using the following command:
-  streamlit run app.py
+  ```streamlit run app.py```
 - This will start the app, and you can access it in your web browser at http://localhost:8501.
 
 
