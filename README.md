@@ -49,5 +49,3 @@ Model:
 <br><br>
 <a href="https://www.linkedin.com/in/pratham-yeshwante-542333259/">Connect on Linkedin</a> 
   
-# License
-This project is licensed under the MIT License.
